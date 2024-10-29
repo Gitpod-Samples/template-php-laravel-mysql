@@ -5,9 +5,11 @@ tasks:
       cp .env.example .env &&
       sed -i "s#APP_URL=http://localhost#APP_URL=$(gp url 8000)#g" .env
       sed -i "s#GITPOD_VITE_URL=#GITPOD_VITE_URL=$(gp url 5173)#g" .env
+      touch database/database.sqlite
       composer install --ignore-platform-reqs
       php artisan key:generate
       php artisan storage:link
+      php artisan migrate:fresh --seed
       php artisan serve
 
   - name: Install Node dependencies and run Vite
@@ -17,9 +19,6 @@ tasks:
       npm run dev
 
 ports:
-  - port: 3306
-    onOpen: ignore
-    name: MySQL Database Port
   - port: 5173
     onOpen: ignore
     visibility: public
