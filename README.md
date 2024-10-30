@@ -6,8 +6,7 @@ This is a [Laravel](https://laravel.com) template configured for ephemeral devel
 
 Click the button below to start a new development environment:
 
-TODO: decide url for LINK
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/template-php-laravel-mysql)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-samples/template-laravel)
 
 ## Get Started With Your Own Project
 
