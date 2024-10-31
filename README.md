@@ -1,3 +1,5 @@
+![Gitpod Preview](./.gitpod-preview.png)
+
 # Laravel template on Gitpod
 
 This is a [Laravel](https://laravel.com) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
@@ -6,7 +8,9 @@ This is a [Laravel](https://laravel.com) template configured for ephemeral devel
 
 Click the button below to start a new development environment:
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-samples/template-laravel)
+<a href="https://gitpod.io/#https://github.com/gitpod-samples/template-laravel" target="_blank">
+  <img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod">
+</a>
 
 ## Get Started With Your Own Project
 
