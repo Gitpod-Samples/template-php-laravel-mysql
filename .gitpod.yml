@@ -1,15 +1,15 @@
 tasks:
   - name: Setup environment and PHP/Composer dependencies
     openMode: split-left
-    # Fix because of https://github.com/gitpod-io/gitpod/issues/16614
-    #before: sudo curl -o /usr/local/bin/docker-compose -fsSL https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-linux-$(uname -m)
     init: |
       cp .env.example .env &&
       sed -i "s#APP_URL=http://localhost#APP_URL=$(gp url 8000)#g" .env
       sed -i "s#GITPOD_VITE_URL=#GITPOD_VITE_URL=$(gp url 5173)#g" .env
+      touch database/database.sqlite
       composer install --ignore-platform-reqs
       php artisan key:generate
       php artisan storage:link
+      php artisan migrate:fresh --seed
       php artisan serve
 
   - name: Install Node dependencies and run Vite
@@ -18,15 +18,7 @@ tasks:
       npm install
       npm run dev
 
-  - name: Start DB
-    openMode: split-right
-    command: |
-      docker compose up -d
-
 ports:
-  - port: 3306
-    onOpen: ignore
-    name: MySQL Database Port
   - port: 5173
     onOpen: ignore
     visibility: public
